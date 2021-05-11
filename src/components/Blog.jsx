@@ -14,11 +14,11 @@ export const Blog = () => {
     const right = <FontAwesomeIcon icon={faArrowRight}/>
 
     return (
-        <section className="mx-48 text-gray-600 body-font overflow-hidden">
-            <div className="container px-5 py-16 mx-auto">
+        <section className="md:mx-48 px-3 text-gray-600 body-font overflow-hidden">
+            <div className="container px-5 py-8 md:py-16 mx-auto">
                 <div className="-my-8 divide-y-2 divide-gray-100">
                     {blogs.slice(0, 5).map((blog, key) => (
-                        <div key={key} className="py-8 flex flex-wrap md:flex-nowrap">
+                        <div key={key} className="py-4 flex flex-wrap md:flex-nowrap">
                             <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                                 <span className="font-semibold title-font text-gray-700">
                                     {blog.category}

@@ -8,7 +8,7 @@ export const BlogContent = () => {
     const history = useHistory();
     const left = <FontAwesomeIcon icon={faArrowLeft}/>
     return (
-        <div className="mt-16 w-8/12 mx-auto px-8">
+        <div className="mt-16 md:w-8/12 mx-auto px-8">
             <button onClick={() => history.goBack()}
                     className="text-yellow-500 inline-flex items-center mt-4">
                 {left}
