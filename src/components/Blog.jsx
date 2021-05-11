@@ -1,10 +1,20 @@
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {blogs} from "../data.js";
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
 
 export const Blog = () => {
+
+    const history = useHistory();
+
+    const handleSubmit = (blog) => {
+        history.push('/blog', {blog: blog})
+    }
+
+    const right = <FontAwesomeIcon icon={faArrowRight}/>
+
     return (
-        <section className="text-gray-600 body-font overflow-hidden">
+        <section className="mx-48 text-gray-600 body-font overflow-hidden">
             <div className="container px-5 py-16 mx-auto">
                 <div className="-my-8 divide-y-2 divide-gray-100">
                     {blogs.slice(0, 5).map((blog, key) => (
@@ -21,23 +31,19 @@ export const Blog = () => {
                                 <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
                                     {blog.title}
                                 </h2>
-                                <p className="leading-relaxed">
-                                    {blog.content}
+                                <p className="overflow-ellipsis overflow-hidden ...">
+                                    {blog.headerContent}
                                 </p>
-                                <Link to="/blog"
-                                      className="text-yellow-500 inline-flex items-center mt-4">
-                                    Read More
-                                    <svg className="w-4 h-4 ml-2"
-                                         viewBox="0 0 24 24"
-                                         stroke="currentColor"
-                                         strokeWidth="2"
-                                         fill="none"
-                                         strokeLinecap="round"
-                                         strokeLinejoin="round">
-                                        <path d="M5 12h14"/>
-                                        <path d="M12 5l7 7-7 7"/>
-                                    </svg>
-                                </Link>
+                                <div onClick={() => {
+                                    handleSubmit(blog)
+                                }}
+                                     style={{cursor: 'pointer'}}
+                                     className="text-yellow-500 inline-flex items-center mt-4">
+                                    <div className="text-l mr-2">
+                                        Read More
+                                    </div>
+                                    {right}
+                                </div>
                             </div>
                         </div>
                     ))}
